@@ -1,0 +1,18 @@
+Id;Designator;Package;Quantity;Designation;Supplier;Reference;Part No.
+2;C1,C4,C5;C_0603_1608Metric;3;4.7uF;Digi-Key;https://www.digikey.com/products/en?keywords=1276-1045-1-ND;1276-1045-1-ND
+3;C2,C3;C_0603_1608Metric;2;1uF;Digi-Key;https://www.digikey.com/products/en?keywords=1276-1945-1-ND;1276-1945-1-ND
+4;C6;C_0603_1608Metric;1;10uF;Digi-Key;https://www.digikey.com/products/en?keywords=1276-1119-1-ND;1276-1119-1-ND
+5;C7,C8;C_0603_1608Metric;2;0.1uF;Digi-Key;https://www.digikey.com/products/en?keywords=1276-1935-1-ND;1276-1935-1-ND
+6;D1,D4,D5,D6;LED_0603_1608Metric;4;RED;Digi-Key;https://www.digikey.com/products/en?keywords=732-4978-1-ND;732-4978-1-ND
+7;F1;C2Q250;1;250mA;Digi-Key;https://www.digikey.com/products/en?keywords=507-1086-1-ND;507-1086-1-ND
+10;IC1;STM32G0_UFQFPN28_T1;1;STM32G071G8U6;Digi-Key;https://www.digikey.com/products/en?keywords=497-STM32G071G8U6-ND;497-STM32G071G8U6-ND
+11;J1;USB_Micro-B_Molex_47346-0001;1;USB_B_Micro;Digi-Key;https://www.digikey.com/products/en?keywords=609-4613-2-ND;609-4613-2-ND
+18;R1,R2,R4,R15,R16,R17,R18,R19,R21;R_0603_1608Metric;9;1.8K;Digi-Key;https://www.digikey.com/products/en?keywords=RMCF0603JT1K80CT-ND;RMCF0603JT1K80CT-ND
+19;R3,R5,R6;R_0603_1608Metric;3;10K;Digi-Key;https://www.digikey.com/products/en?keywords=RMCF0603JT10K0CT-ND;RMCF0603JT10K0CT-ND
+20;R7,R8,R9,R10,R11,R12,R13,R14,R23,R24,R25,R26;R_0603_1608Metric;12;0;Digi-Key;https://www.digikey.com/products/en?keywords=RMCF0603ZT0R00CT-ND;RMCF0603ZT0R00CT-ND
+21;SW1,SW2;SW_SPST_B3U-1000P;2;SW_Push;Digi-Key;https://www.digikey.com/products/en?keywords=SW1020CT-ND;SW1020CT-ND
+22;U1;MCP73811T-420I&slash_OT;1;MCP73811T-420I_OT;Digi-Key;https://www.digikey.com/products/en?keywords=MCP73811T-420I%2FOTCT-ND;MCP73811T-420I/OTCT-ND
+23;U2;MIC94310-GYM5-SOT-753;1;MIC94310;Digi-Key;https://www.digikey.com/products/en?keywords=576-4769-1-ND;576-4769-1-ND
+24;U3;MAX30102EFD&plus_;1;MAX30102EFD+;Digi-Key;https://www.digikey.com/products/en?keywords=MAX30102EFD%2B-ND;MAX30102EFD+-ND
+25;U4;SON127P500X600X60-9N;1;AT45DB081E-MHN-Y;Digi-Key;https://www.digikey.com/products/en?keywords=1265-1110-ND;1265-1110-ND
+26;U5,U6;MMBT3906-7-F;2;MMBT3906-7-F;Digi-Key;https://www.digikey.com/products/en?keywords=MMBT3906-FDICT-ND;MMBT3906-FDICT-ND
