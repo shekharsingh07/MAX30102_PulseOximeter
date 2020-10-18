@@ -180,7 +180,7 @@ void gotoSleep(void)
 				{
 				  sw1_pin_cnt++;
 				  HAL_TIM_Base_Stop(&htim14);						//Stop timer
-				  uart_buf_len = sprintf(uart_buf, "SENSOR MODE.\r\n");
+				  uart_buf_len = sprintf(uart_buf, "1. SENSOR MODE.\r\n");
 				  HAL_UART_Transmit(&huart2, (uint8_t *)uart_buf, uart_buf_len, 10000);		//UART write
 				  TimerStart();										//Start Timer
 				  HAL_Delay(1000);
@@ -195,58 +195,28 @@ void gotoSleep(void)
 					  break;
 				  }
 
-				  if((sw2_pin_cnt==0)&(sensor_en==1)&(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3) == GPIO_PIN_RESET))	//SENSOR MODE
+				  // i. Probably toggle between START and STOP and leave out the PAUSE function. (Reduce code and CPU space)
+
+				  if((sensor_en==0)&(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3) == GPIO_PIN_RESET))	//SENSOR MODE
 					{
-					  sw2_pin_cnt ++;
 					  HAL_TIM_Base_Stop(&htim14);						//Stop timer
-					  uart_buf_len = sprintf(uart_buf, "PAUSE.\r\n");
+					  uart_buf_len = sprintf(uart_buf, "	(i)START.\r\n");
 					  HAL_UART_Transmit(&huart2, (uint8_t *)uart_buf, uart_buf_len, 10000);		//UART write
 					  TimerStart();
+					  sensor_en = 1;
 					  //break;
 					  HAL_Delay(1000);
 					}
-				  if((sw2_pin_cnt==0)&(sensor_en==0)&(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3) == GPIO_PIN_RESET))
+				  if((sensor_en==1)&(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3) == GPIO_PIN_RESET))
 				  {
-					  sw2_pin_cnt ++;
 					  HAL_TIM_Base_Stop(&htim14);						//Stop timer
-					  uart_buf_len = sprintf(uart_buf, "START.\r\n");
+					  uart_buf_len = sprintf(uart_buf, "	(ii)STOP.\r\n");
 					  HAL_UART_Transmit(&huart2, (uint8_t *)uart_buf, uart_buf_len, 10000);		//UART write
 					  TimerStart();
+					  sensor_en = 0;
 					 //break;
 					  HAL_Delay(1000);
 				  }
-
-				  if((sw2_pin_cnt==1)&(sensor_en==1)&(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3) == GPIO_PIN_RESET))	//SENSOR MODE
-					{
-					  sw2_pin_cnt ++;
-					  HAL_TIM_Base_Stop(&htim14);						//Stop timer
-					  uart_buf_len = sprintf(uart_buf, "STOP.\r\n");
-					  HAL_UART_Transmit(&huart2, (uint8_t *)uart_buf, uart_buf_len, 10000);		//UART write
-					  TimerStart();
-					  //break;
-					  HAL_Delay(1000);
-					}
-				  if((sw2_pin_cnt==1)&(sensor_en==0)&(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3) == GPIO_PIN_RESET))
-				  {
-					  sw2_pin_cnt ++;
-					  HAL_TIM_Base_Stop(&htim14);						//Stop timer
-					  uart_buf_len = sprintf(uart_buf, "PAUSE.\r\n");
-					  HAL_UART_Transmit(&huart2, (uint8_t *)uart_buf, uart_buf_len, 10000);		//UART write
-					  TimerStart();
-					 // break;
-					  HAL_Delay(1000);
-				  }
-
-				  if((sw2_pin_cnt==2)&(sensor_en==0)&(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3) == GPIO_PIN_RESET))	//SENSOR MODE
-					{
-					  sw2_pin_cnt ++;
-					  HAL_TIM_Base_Stop(&htim14);						//Stop timer
-					  uart_buf_len = sprintf(uart_buf, "STOP.\r\n");
-					  HAL_UART_Transmit(&huart2, (uint8_t *)uart_buf, uart_buf_len, 10000);		//UART write
-					  TimerStart();
-					// break;
-					  HAL_Delay(1000);
-					}
 			  }
 //*________________________________________2. DISPLAY MODE_________________________________________________________
 
@@ -255,7 +225,7 @@ void gotoSleep(void)
 //				  sw1_pin_cnt ++;
 				  sw2_pin_cnt = 0;
 				  HAL_TIM_Base_Stop(&htim14);						//Stop timer
-				  uart_buf_len = sprintf(uart_buf, "DISPLAY MODE.\r\n");
+				  uart_buf_len = sprintf(uart_buf, "2. DISPLAY MODE.\r\n");
 				  HAL_UART_Transmit(&huart2, (uint8_t *)uart_buf, uart_buf_len, 10000);		//UART write
 				  TimerStart();										//Start Timer
 				  HAL_Delay(1000);
@@ -276,7 +246,7 @@ void gotoSleep(void)
 				 // sw1_pin_cnt ++;
 				  sw2_pin_cnt = 0;
 				  HAL_TIM_Base_Stop(&htim14);						//Stop timer
-				  uart_buf_len = sprintf(uart_buf, "RESET MODE.\r\n");
+				  uart_buf_len = sprintf(uart_buf, "3. RESET MODE.\r\n");
 				  HAL_UART_Transmit(&huart2, (uint8_t *)uart_buf, uart_buf_len, 10000);		//UART write
 				  TimerStart();										//Start Timer
 				  HAL_Delay(1000);
@@ -287,7 +257,7 @@ void gotoSleep(void)
 				  {
 					  sw1_pin_cnt = 1;
 					  HAL_Delay(1000);
-					  uart_buf_len = sprintf(uart_buf, "SENSOR MODE.\r\n");
+					  uart_buf_len = sprintf(uart_buf, "1. SENSOR MODE.\r\n");
 					  HAL_UART_Transmit(&huart2, (uint8_t *)uart_buf, uart_buf_len, 10000);		//UART write
 				  }
 				  //reset everything when SW2 pressed twice.
